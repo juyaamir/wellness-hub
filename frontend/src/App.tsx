@@ -3,9 +3,12 @@ function App() {
  
 
   return (
-    <div className='max-w-screen-xl mx-auto'>
-      <MainLayout  />
+    <div className='bg-sky-100'>
+      <div className='max-w-screen-xl mx-auto bg-white'>
+        <MainLayout  />
+      </div>
     </div>
+
   )
 }
 

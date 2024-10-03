@@ -4,7 +4,7 @@ import Footer from './Footer.tsx'
 import Router from '../router.tsx'
 const MainLayout = () => {
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='flex flex-col min-h-screen shadow-2xl border border-gray-300'>
         <Header />
         <div className='flex-grow'>
             <Router />
