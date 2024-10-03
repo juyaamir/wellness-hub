@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 300px) {
+    .subscribe-input, .search-input {
+      width: 70%;
+    }
+  }
+  
+

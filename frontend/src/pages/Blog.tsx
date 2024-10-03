@@ -1,8 +1,58 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom';
 
-const Blog = () => {
+interface Topic {
+  Id: number;
+  Title: string;
+}
+const Blog: React.FC<{topics: Topic[]; error: string | null}> = () => {
+  const [topics, setTopics] = useState<Topic[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get('https://health.gov/myhealthfinder/api/v3/itemlist.json?Type=topic');
+        setTopics(response.data.Result.Items.Item);
+        console.log(response.data.Result.Items.Item);
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(`Error: ${error.message}`);
+        } else {
+          setError('An unknown error occurred');
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    getData();
+  }, []);
+  if (loading) {
+    return <div>Loading...</div>
+  };
+  if (error) {
+    return <div>{error}</div>
+  };
+  if(!topics) {
+    return <div>No Topics Available!</div>
+  }
   return (
-    <div>Blog</div>
+    <div className='p-6'>
+      <h1 className='text-xl font-bold text-cyan-600 text-center'>Find Information on health, wellness, disorders ans conditions!</h1>
+      <div>
+        {
+          topics.map((topic) => (
+            <Link to={`https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=${topic.Id}`} key={topic.Id}
+            className='block p-2 text-lg font-semibold hover:underline hover:text-white hover:bg-cyan-600
+            border border-gray-400 hover:scale-110 transition-transform duration-500 w-max m-2 text-cyan-600'
+            >
+              {topic.Title}
+            </Link>
+          ))
+        }
+      </div>
+    </div>
   )
 }
 

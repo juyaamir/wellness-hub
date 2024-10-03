@@ -3,7 +3,7 @@ function App() {
  
 
   return (
-    <div className='bg-sky-100'>
+    <div className='bg-gray-100'>
       <div className='max-w-screen-xl mx-auto bg-white'>
         <MainLayout  />
       </div>
