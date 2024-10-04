@@ -4,11 +4,12 @@ interface NavItem {
 }
 export const navbar: NavItem[] = [
     { title: 'Home',path: '/'},
+    { title: 'Topics', path: '/blog'},
+    { title: 'My Health', path: '/categories'},
+    { title: 'Resources', path: '/resources'},
     { title: 'About',path: '/about'},
     { title: 'Contact', path: '/contact'},
-    { title: 'Blog', path: '/blog'},
-    { title: 'Categories', path: '/categories'},
-    { title: 'Resources', path: '/resources'},
+   
 ];
 
 interface FooterLink {

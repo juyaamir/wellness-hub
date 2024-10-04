@@ -39,13 +39,13 @@ const Blog: React.FC<{topics: Topic[], error: string | null}> = () => {
   }
   return (
     <div className='p-6'>
-      <h1 className='text-xl font-bold text-cyan-600 text-center'>Find Information on health, wellness, disorders ans conditions!</h1>
+      <h1 className='text-xl font-bold text-gray-600 text-center'>Find Information on health and wellness!</h1>
       <div>
         {
           topics.map((topic) => (
             <Link to={`https://health.gov/myhealthfinder/api/v3/topicsearch.json?TopicId=${topic.Id}`} key={topic.Id}
             className='block p-2 text-lg font-semibold hover:underline hover:text-white hover:bg-cyan-600
-            border border-gray-400 hover:scale-110 transition-transform duration-500 w-max m-2 text-cyan-600'
+            hover:scale-110 transition-transform duration-500 w-max m-2 text-cyan-600'
             >
               {topic.Title}
             </Link>
