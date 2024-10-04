@@ -6,7 +6,7 @@ interface Topic {
   Id: number;
   Title: string;
 }
-const Blog: React.FC<{topics: Topic[], error: string | null}> = () => {
+const Blog: React.FC = () => {
   const [topics, setTopics] = useState<Topic[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -34,7 +34,7 @@ const Blog: React.FC<{topics: Topic[], error: string | null}> = () => {
   if (error) {
     return <div>{error}</div>
   };
-  if(!topics) {
+  if(!topics.length) {
     return <div>No Topics Available!</div>
   }
   return (
