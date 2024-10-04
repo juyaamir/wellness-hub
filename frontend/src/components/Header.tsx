@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { navbar} from '../data/data.tsx'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.jpg'
